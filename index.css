@@ -1,0 +1,169 @@
+h1{
+  text-align: center
+}
+
+body{
+  height: 1000vh;
+  /* background: linear-gradient(rgb(47,150,163), rgb(48,62,143)); */
+}
+
+img{
+  height: 100px;
+  width: auto;
+  text-align: center;
+}
+
+.card{
+  width: 15rem;
+  height: auto;
+  padding: 15px;
+  display: inline-grid;
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 1rem 2rem;
+  background-color: rgb(10, 187, 128);
+  border-radius: 10px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(3, 206, 94, 0.685);
+}
+
+.row{
+  text-align: center;
+  /* display: flex; */
+}
+
+.header{
+  display: inline-block;
+  max-height: 50px;
+  width: 100px;
+}
+
+.right{
+  color: rgb(32, 185, 32);
+}
+
+.wrong{
+  color: red;
+}
+
+#trivia-game{
+  justify-content: center;
+  text-align: center;
+  /* width: 50%; */
+  /* border-radius: 10px;
+  background-color: ;rgb(14, 101, 172); */
+}
+
+#trivia-container{
+  justify-content: center;
+  background-color: rgba(14, 122, 223, 0.486);
+  border-radius: 10%;
+}
+
+#country-container, #how-to-play, #form, #scoreboard{
+  text-align: center;
+}
+
+#hint{
+  float: left;
+  padding-left: 70px;
+}
+
+#timer{
+  float: right;
+  padding-right: 70px;
+}
+
+#start-over, #hint, #timer{
+  display: inline-block;
+}
+
+ul{
+  list-style-type: none;
+  /* float: left; */
+}
+
+li{
+  list-style-type: none;
+  
+}
+
+#p1, #p2, #p3, #p4, #p5, #p6{
+  font-family: Arial;
+  margin-left : 70px;
+  margin-right : 70px
+}
+
+#model-citizen {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#country-flag {
+  max-width : 37%; 
+  height : auto;
+  padding-top : 50px
+}
+
+#h3 {
+  margin-top: -15px;
+}
+
+#game-over {
+  max-width: 100%; 
+  height : auto
+}
+#score, .answer-list{
+  padding-bottom: 10px;
+}
+#start-over {
+  margin-top : 30px;
+}
+
+.right, .wrong {
+  font-family: Arial
+}
+
+.right {
+  padding : 10px;
+}
+
+.wrong {
+  padding : 10 px;
+}
+
+.answer-list {
+  font-family: Arial;
+}
+
+h3 {
+  font-family: Arial;
+}
+
+#are-you {
+  max-width: 50%; 
+  height: auto;
+}
+
+#hint {
+  text-decoration : underline;
+}
+
+#quiz-button {
+  margin-left: -30px;
+}
+
+#study-button {
+  margin-right : -30px; 
+}
+
+#study-button, #quiz-button, #p5 {
+  display: inline-block;
+}
+
+/* #h2 {
+  font-family: Arial;
+} */
