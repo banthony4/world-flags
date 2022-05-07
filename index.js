@@ -1,6 +1,7 @@
 // Variables
 const countryList = document.getElementById('country-container');
 const triviaContainer = document.getElementById('trivia-container');
+const filters = document.getElementById('country-filters')
 const studyBttn = document.getElementById('study-button');
 const triviaBttn = document.getElementById('quiz-button');
 const howToPlay = document.getElementById('how-to-play');
@@ -16,42 +17,25 @@ const fetchCountries = () => {
 };
 
 
-// languageSelect.addEventListener('change', (e) => {
-//     const language = e.target.value
-//     console.log(language)
-//     fetchCountries()
-//     .then(country => {
-//         country.forEach((country)=> {
-//         countriesArray.push(country.translations.language)
-//         })
-//         renderRandomCountry(countriesArray)
-//     }) //need to figure out how to use this value in renderCountries, possibly on click re-render and pass on language as varible? I'll try this in the morning!
-// });
-
-
 // create Card for each Country
 const renderCountries = (country) => {
     const countryCard = document.createElement('div')
     countryCard.className = 'card'
 
-    const div = document.createElement('div')
-    div.className = 'flag-container'
+    const figure = document.createElement('figure')
+    figure.className = 'flag-container'
     const countryFlag = document.createElement('img')
     countryFlag.src = country.flags.svg
     countryFlag.alt = country.name.official
     countryFlag.class = 'flags'
-    div.append(countryFlag)
+    figure.append(countryFlag)
 
     const countryName = document.createElement('h3')
     countryName.className = 'country-name'
-    countryName.textContent = country.name.official
+    countryName.textContent = country.name.common
 
     const countryCapital = document.createElement('h4')
     countryCapital.textContent = `Capital: ${country.capital}`
-
-    // const translation = document.createElement('h2')
-    // translation.textContent = country.translations.kor.common //kor should be replaced by language
-    // console.log(country.translations.language)
 
     const population = document.createElement('p')
     population.textContent= `Population: ${country.population}`
@@ -59,7 +43,7 @@ const renderCountries = (country) => {
     const continent = document.createElement('p')
     continent.textContent = `Continent: ${country.continents}`
 
-    countryCard.append(div, countryName, countryCapital, population, continent)
+    countryCard.append(figure, countryName, countryCapital, population, continent)
     countryList.appendChild(countryCard)
 };
 
@@ -70,28 +54,29 @@ const renderTrivia = () => {
     const triviaGame = document.createElement('div')
     triviaGame.id = 'trivia-game'
 
-    const hintBttn = document.createElement('h1')
+    const header = document.createElement('div')
+    header.className = 'header'
+    const hintBttn = document.createElement('button')
     hintBttn.id = 'hint'
-    hintBttn.textContent = ' hint? '
+    hintBttn.textContent = ' Hint? '
     hintBttn.addEventListener("click", renderHint)
-    
+    const timer = document.createElement('button');
+    timer.textContent = 60
+    timer.id = 'timer'
+    header.append(hintBttn, timer)
+
     const startOver = document.createElement('button');
     startOver.id = 'start-over'
     startOver.textContent = 'START OVER'
     startOver.addEventListener('click', reload);
-    
-    const timer = document.createElement('h1');
-    timer.textContent = 60
-    timer.id = 'timer'
-    
-    const nameAndHint = document.createElement("div"); 
-    nameAndHint.id = "name-hint-div"
-    
+
+    const flagAndHint = document.createElement("div"); 
+    flagAndHint.id = "flag-hint-div"
     const flag = document.createElement("img");
-    flag.id = 'country-flag'
+    flag.id = 'trivia-flag'
     const showHint = document.createElement('h4')
     showHint.id = 'show-hint'
-    nameAndHint.append(flag, showHint);
+    flagAndHint.append(flag, showHint);
     
     const h3 = document.createElement('h3');
     h3.textContent = 'Answer:'
@@ -106,9 +91,8 @@ const renderTrivia = () => {
     const input = document.createElement('input');
     input.type = 'text'
     input.name = 'answer'
-    input.placeholder = 'Type answer here'
+    input.placeholder = 'Type Answer Here'
     input.id = "answer"
-    
     const submit = document.createElement('input');
     submit.type = 'submit'
     submit.name = 'submit'
@@ -126,15 +110,8 @@ const renderTrivia = () => {
     const score = document.createElement('h2')
     score.id = 'score'
     score.innerHTML = `<span class='right'>Correct: ${correct}</span><span class='wrong'> Incorrect: ${incorrect}</span>`
-    
-    // REMINDER: FETCH BELOW IS USED TO VIEW API ARRAY/OBJECT ELEMENTS IN CONSOLE. DO NOT DELETE!!! 
-    // fetch(baseUrl)
-    // .then(response => response.json())
-    // .then(countries => {
-    //     countries.forEach(country => console.log(country))
-    // })
-    
-    triviaGame.append(hintBttn, startOver, timer, nameAndHint, img, h3, form, scoreboard, score);
+
+    triviaGame.append(header, startOver, flagAndHint, img, h3, form, scoreboard, score);
     triviaContainer.append(triviaGame);
 }
 
@@ -157,7 +134,7 @@ const renderRandomFlag = (flags, countries) => {
     appendFlagToTrivia(flagImg, flagAlt)
 }
 const appendFlagToTrivia = (flagImg, flagAlt) => {
-    const flag = document.getElementById('country-flag')
+    const flag = document.getElementById('trivia-flag')
     flag.src = flagImg
     flag.alt = flagAlt
 }
@@ -167,17 +144,17 @@ const appendFlagToTrivia = (flagImg, flagAlt) => {
 function submitAnswer(e) {
     e.preventDefault();
     document.getElementById('show-hint').textContent = ''
-    const correctAnswer = document.getElementById('country-flag').alt.toLowerCase()
+    const correctAnswer = document.getElementById('trivia-flag').alt.toLowerCase()
     const score = document.getElementById('score')
     const timer = document.getElementById('timer')
     const triviaBoard = document.getElementById('trivia-game')
-    const answer = document.createElement('h3')
+    const answer = document.createElement('h2')
     answer.className = 'answer-list'
     if(correctAnswer.includes(e.target.answer.value.toLowerCase()) && e.target.answer.value.length > 3){
         score.innerHTML = `<span class='right'>Correct: ${++correct}</span><span class='wrong'> Incorrect: ${incorrect}</span>`
         timer.innerText = parseInt(timer.innerText) + 10
         answer.innerText = e.target.answer.value
-        answer.style.color = 'rgb(32, 185, 32)'
+        answer.style.color = 'rgb(69, 252, 69)'
         triviaBoard.append(answer)
     } else {
         score.innerHTML = `<span class='right'>Correct: ${correct}</span><span class='wrong'> Incorrect: ${++incorrect}</span>`
@@ -191,7 +168,7 @@ function submitAnswer(e) {
 };
 
 const renderHint = () => {
-    const img = document.getElementById('country-flag')
+    const img = document.getElementById('trivia-flag')
     const showHint = document.getElementById('show-hint')
     fetch(`https://restcountries.com/v3.1/name/${img.alt}`)
     .then(resp => resp.json())
@@ -216,7 +193,7 @@ const decrementCounter = () => {
 const gameOver = () => {
     document.getElementById('timer').style.display = 'none'
     document.getElementById('hint').style.display = 'none'
-    document.getElementById('country-flag').style.display = 'none'
+    document.getElementById('trivia-flag').style.display = 'none'
     document.getElementById('form').style.display = 'none'
     document.getElementById('timer').style.display = 'none'
     document.getElementById('scoreboard').style.display = 'none'
@@ -236,12 +213,12 @@ const addSearchBar = () => {
     const input = document.createElement('input')
     input.type = 'search'
     input.name = 'search'
-    input.id = 'search-bar'
+    input.id = 'search'
     input.placeholder = 'Search for a country...'
     input.addEventListener('input', (e) => countrySearch(e))
 
     searchBar.append(input)
-    countryList.append(searchBar)
+    filters.append(searchBar)
 }
 const countrySearch = (e) => {
     const value = e.target.value.toLowerCase()
@@ -257,23 +234,26 @@ const countrySearch = (e) => {
 
 
 const reload = () => {
-    location.reload();
+    countryList.replaceChildren()
+    triviaContainer.replaceChildren()
+    renderTrivia()
+    countryFlags()
 };
 
 
 // Event Listeners
 studyBttn.addEventListener('click', () => {
-    // howToPlay.style.display = 'none'
     countryList.replaceChildren()
     triviaContainer.replaceChildren()
+    filters.replaceChildren()
     fetchCountries()
     .then(countries => countries.forEach(renderCountries))
-    addSearchBar()
+    .then(addSearchBar())
 })
 triviaBttn.addEventListener('click', () => {
-    howToPlay.style.display = 'none'
     countryList.replaceChildren()
     triviaContainer.replaceChildren()
+    filters.replaceChildren()
     renderTrivia()
     setInterval(decrementCounter, 1000)
     countryFlags()

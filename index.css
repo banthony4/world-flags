@@ -1,169 +1,169 @@
-h1{
-  text-align: center
+:root{
+  background-color: rgb(70, 68, 68);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
-
-body{
-  height: 1000vh;
-  /* background: linear-gradient(rgb(47,150,163), rgb(48,62,143)); */
-}
-
-img{
-  height: 100px;
-  width: auto;
+/* title */
+.showcase{
   text-align: center;
 }
-
-.card{
-  width: 15rem;
-  height: auto;
-  padding: 15px;
-  display: inline-grid;
-  text-align: center;
-  flex-wrap: wrap;
-  margin: 1rem 2rem;
-  background-color: rgb(10, 187, 128);
-  border-radius: 10px;
+.title{
+  font-size: 100px;
+  background: -webkit-linear-gradient(60deg, #5cb840, #4fb2e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 5px;
 }
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(3, 206, 94, 0.685);
-}
-
 .row{
   text-align: center;
   /* display: flex; */
 }
 
+/* flags below title */
 .header{
   display: inline-block;
   max-height: 50px;
   width: 100px;
 }
 
-.right{
-  color: rgb(32, 185, 32);
-}
-
-.wrong{
-  color: red;
-}
-
-#trivia-game{
-  justify-content: center;
+/* buttons */
+#nav-buttons{
   text-align: center;
-  /* width: 50%; */
-  /* border-radius: 10px;
-  background-color: ;rgb(14, 101, 172); */
+}
+#study-button, #quiz-button {
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+  background-color: rgb(139, 136, 136);
+  color: rgb(32, 218, 156);
+  border-color: rgb(32, 218, 156);
+  border-radius: 20%;
+  border-width: 3px;
+  font-size: x-large;
 }
 
-#trivia-container{
-  justify-content: center;
-  background-color: rgba(14, 122, 223, 0.486);
-  border-radius: 10%;
-}
-
+/* country cards */
 #country-container, #how-to-play, #form, #scoreboard{
   text-align: center;
 }
+.flag-container{
+  text-align: center;
+}
+.flag-container img{
+  height: 100px;
+  max-width: 100%;
+}
+.card{
+  width: 250px;
+  height: 400px;
+  padding: 15px;
+  display: inline-grid;
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 20px;
+  background-color: rgb(16, 172, 120);
+  border-radius: 10px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(3, 206, 94, 0.685);
+}
 
-#hint{
+#search{
+  padding: 10px;
+  background-color: rgb(16, 172, 120);
+  border-radius: 10px;
+  color: rgb(3, 3, 3);
+}
+
+
+/* trvia page */
+#trivia-game{
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(16, 172, 120);
+  border-radius: 10%;
+}
+#trivia-container{
+  width: 80%;
+  height: auto;
+  padding-left: 140px;
+}
+.header{
+  display: inline;
+}
+.header #hint{
   float: left;
-  padding-left: 70px;
+  font-size: 30px;
+  background-color: rgb(32, 218, 156);
+  border-color: grey;
+  border-width: 2px;
+  border-radius: 20%;
+  color: rgb(139, 136, 136);
+  margin-left: 50px;
+  margin-top: 40px;
 }
-
-#timer{
+.header #timer{
   float: right;
-  padding-right: 70px;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(32, 218, 156);
+  border-color: grey;
+  border-radius: 50%;
+  border-width: 2px;
+  color: grey;
+  margin-right: 50px;
+  margin-top: 40px;
 }
-
-#start-over, #hint, #timer{
-  display: inline-block;
+#start-over{
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: rgb(32, 218, 156);
+  border-color: grey;
+  border-width: 2px;
+  border-radius: 20%;
+  color: rgb(139, 136, 136);
 }
-
-ul{
-  list-style-type: none;
-  /* float: left; */
-}
-
-li{
-  list-style-type: none;
-  
-}
-
-#p1, #p2, #p3, #p4, #p5, #p6{
-  font-family: Arial;
-  margin-left : 70px;
-  margin-right : 70px
-}
-
-#model-citizen {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-#country-flag {
+#trivia-flag {
   max-width : 37%; 
   height : auto;
   padding-top : 50px
 }
+#answer{
+  padding: 10px;
+  background-color: grey;
+  border-radius: 10px;
+  color: rgb(32, 218, 156);
+}
+#answer::placeholder { 
+  color: rgb(32, 218, 156);
+}
+#submit-input{
+  height: 30px;
+  background-color: rgb(139, 136, 136);
+  color: rgb(32, 218, 156);
+  border-color: rgb(32, 218, 156);
+  border-radius: 20%;
+  font-size: large;
+}
+#scoreboard{
+  background-color: #4fb2e0;
+}
 
-#h3 {
-  margin-top: -15px;
+#score, .answer-list{
+  padding-bottom: 10px;
+}
+
+.right, .wrong {
+  padding : 10px;
+}
+.right{
+  color: rgb(69, 252, 69);
+}
+.wrong{
+  color: rgb(255, 0, 0);
 }
 
 #game-over {
   max-width: 100%; 
   height : auto
 }
-#score, .answer-list{
-  padding-bottom: 10px;
-}
-#start-over {
-  margin-top : 30px;
-}
-
-.right, .wrong {
-  font-family: Arial
-}
-
-.right {
-  padding : 10px;
-}
-
-.wrong {
-  padding : 10 px;
-}
-
-.answer-list {
-  font-family: Arial;
-}
-
-h3 {
-  font-family: Arial;
-}
-
-#are-you {
-  max-width: 50%; 
-  height: auto;
-}
-
-#hint {
-  text-decoration : underline;
-}
-
-#quiz-button {
-  margin-left: -30px;
-}
-
-#study-button {
-  margin-right : -30px; 
-}
-
-#study-button, #quiz-button, #p5 {
-  display: inline-block;
-}
-
-/* #h2 {
-  font-family: Arial;
-} */
