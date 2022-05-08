@@ -1,5 +1,5 @@
 :root{
-  background-color: rgb(70, 68, 68);
+  background-color: #1F2833;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 /* title */
@@ -8,7 +8,7 @@
 }
 .title{
   font-size: 100px;
-  background: -webkit-linear-gradient(60deg, #5cb840, #4fb2e0);
+  background: -webkit-linear-gradient(60deg, #51ff1c, #66FCF1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 5px;
@@ -33,9 +33,9 @@
   display: inline-block;
   width: 200px;
   height: 50px;
-  background-color: rgb(139, 136, 136);
-  color: rgb(32, 218, 156);
-  border-color: rgb(32, 218, 156);
+  background-color: #0B0C10;
+  color: #66FCF1;
+  border-color: #66FCF1;
   border-radius: 20%;
   border-width: 3px;
   font-size: x-large;
@@ -60,16 +60,16 @@
   text-align: center;
   flex-wrap: wrap;
   margin: 20px;
-  background-color: rgb(16, 172, 120);
+  background-color: #66FCF1;
   border-radius: 10px;
 }
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(3, 206, 94, 0.685);
+  box-shadow: 0 8px 16px 0 #66FCF1;
 }
 
 #search{
   padding: 10px;
-  background-color: rgb(16, 172, 120);
+  background-color: #66FCF1;
   border-radius: 10px;
   color: rgb(3, 3, 3);
 }
@@ -79,7 +79,7 @@
 #trivia-game{
   justify-content: center;
   text-align: center;
-  background-color: rgb(16, 172, 120);
+  background-color: #66FCF1;
   border-radius: 10%;
 }
 #trivia-container{
@@ -93,11 +93,11 @@
 .header #hint{
   float: left;
   font-size: 30px;
-  background-color: rgb(32, 218, 156);
-  border-color: grey;
+  background-color: #C5C6C7;
+  border-color: #0B0C10;
   border-width: 2px;
   border-radius: 20%;
-  color: rgb(139, 136, 136);
+  color: #1F2833;
   margin-left: 50px;
   margin-top: 40px;
 }
@@ -106,22 +106,22 @@
   font-size: 30px;
   height: 50px;
   width: 50px;
-  background-color: rgb(32, 218, 156);
-  border-color: grey;
+  background-color: #C5C6C7;
+  border-color: #0B0C10;
   border-radius: 50%;
   border-width: 2px;
-  color: grey;
+  color: #1F2833;
   margin-right: 50px;
   margin-top: 40px;
 }
 #start-over{
   margin-top: 10px;
   font-size: 20px;
-  background-color: rgb(32, 218, 156);
-  border-color: grey;
+  background-color: #C5C6C7;
+  border-color: #0B0C10;
   border-width: 2px;
   border-radius: 20%;
-  color: rgb(139, 136, 136);
+  color: #1F2833;
 }
 #trivia-flag {
   max-width : 37%; 
@@ -130,23 +130,20 @@
 }
 #answer{
   padding: 10px;
-  background-color: grey;
+  background-color: #1F2833;
   border-radius: 10px;
-  color: rgb(32, 218, 156);
+  color: #66FCF1;
 }
 #answer::placeholder { 
-  color: rgb(32, 218, 156);
+  color: #66FCF1;
 }
 #submit-input{
   height: 30px;
-  background-color: rgb(139, 136, 136);
-  color: rgb(32, 218, 156);
-  border-color: rgb(32, 218, 156);
+  background-color: #C5C6C7;
+  color: rgb#66FCF1;
+  border-color: rgb#66FCF1;
   border-radius: 20%;
   font-size: large;
-}
-#scoreboard{
-  background-color: #4fb2e0;
 }
 
 #score, .answer-list{
@@ -157,11 +154,12 @@
   padding : 10px;
 }
 .right{
-  color: rgb(69, 252, 69);
+  color: #1F2833;
 }
 .wrong{
   color: rgb(255, 0, 0);
 }
+
 
 #game-over {
   max-width: 100%; 

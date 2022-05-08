@@ -154,7 +154,7 @@ function submitAnswer(e) {
         score.innerHTML = `<span class='right'>Correct: ${++correct}</span><span class='wrong'> Incorrect: ${incorrect}</span>`
         timer.innerText = parseInt(timer.innerText) + 10
         answer.innerText = e.target.answer.value
-        answer.style.color = 'rgb(69, 252, 69)'
+        answer.style.color = '#1F2833'
         triviaBoard.append(answer)
     } else {
         score.innerHTML = `<span class='right'>Correct: ${correct}</span><span class='wrong'> Incorrect: ${++incorrect}</span>`
@@ -236,6 +236,8 @@ const countrySearch = (e) => {
 const reload = () => {
     countryList.replaceChildren()
     triviaContainer.replaceChildren()
+    incorrect=0
+    correct=0
     renderTrivia()
     countryFlags()
 };
@@ -254,8 +256,9 @@ triviaBttn.addEventListener('click', () => {
     countryList.replaceChildren()
     triviaContainer.replaceChildren()
     filters.replaceChildren()
+    incorrect=0
+    correct=0
     renderTrivia()
     setInterval(decrementCounter, 1000)
     countryFlags()
 })
-
